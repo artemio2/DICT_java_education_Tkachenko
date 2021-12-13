@@ -34,8 +34,8 @@ public class Hangman {
             }
 
         }
-        System.out.println("Thanks for playing!");
-        System.out.println("Well see how well you did in the next stage");
+        System.out.println("You guessed the word");
+        System.out.println("You survived!");
         }
     }
 
