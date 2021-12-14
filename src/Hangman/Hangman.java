@@ -20,11 +20,20 @@ public class Hangman {
         int i = 0;
         while (i < 8) {
             System.out.print("\nInput a letter:");
-            String input = scanner.nextLine();
+            String input = scanner.next();
+
+            if (!input.matches(".")) {
+                System.out.println("You should input a single letter");
+                continue;
+            }
+
+            if (!input.matches("[a-z]")) {
+                System.out.println("Please enter a lowercase English letter");
+                continue;
+            }
 
             if (guessed.contains(input.charAt(0))) {
-                System.out.println("No Improvements");
-                i++;
+                System.out.println("You've already guessed this letter");
                 continue;
             }
 
@@ -53,6 +62,7 @@ public class Hangman {
             System.out.println("You lost!");
             return;
         }
+
         System.out.println("You guessed the word!");
         System.out.println("You survived!");
         }
