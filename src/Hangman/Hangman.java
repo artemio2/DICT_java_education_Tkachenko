@@ -1,4 +1,6 @@
 package Hangman;
+import org.apache.groovy.parser.antlr4.util.StringUtils;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -31,10 +33,12 @@ public class Hangman {
                 }
                 System.out.println(hidden_word);
 
+                long lettersToGuess = StringUtils.countChar(hidden_word.toString(), '-');
+                if (lettersToGuess == 0) break;
             }
 
         }
-        System.out.println("You guessed the word");
+        System.out.println("You guessed the word!Ha");
         System.out.println("You survived!");
         }
     }
