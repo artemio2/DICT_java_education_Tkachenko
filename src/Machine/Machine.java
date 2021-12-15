@@ -1,6 +1,6 @@
-package CoffeMachine;
+package Machine;
 
-public class CoffeMachine {
+public class Machine {
     public static void main(String[] args){
         System.out.println("Starting to make a coffee\n" +
                 "Grinding coffee beans\n" +
