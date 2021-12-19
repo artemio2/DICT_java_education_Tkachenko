@@ -81,10 +81,12 @@ public class Machine {
 
                 System.out.println("Write how many disposable cups of coffee do you want to add: ");
                 this.cups += in.nextInt();
+                this.Availability();
                 break;
             case "take":
                 System.out.println("I gave you " + this.money + "$");
                 this.money = 0;
+                this.Availability();
                 break;
             case "remaining":
                 this.Availability();
