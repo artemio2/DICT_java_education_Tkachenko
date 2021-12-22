@@ -30,12 +30,22 @@ public class Credit {
                 else if(mode.equals("a") || mode.equals("A")){
                     writeData(true,  false,  false);
                     A = absoluteMonth(annualPayment(P, n, i));
-                    System.out.println("Your monthly payment = " + (int)A +"! ");
+                    System.out.println("Your monthly payment = " + (int)A + "! ");
                 }
                 else if(mode.equals("p") || mode.equals("P")){
                     writeData(false,  true, false);
                     P = (int)principalLoanAmount(A, n, i);
                     System.out.println("Your loan principal = " + (int)P +"! ");
+                }
+                else if(mode.equals("d") || mode.equals("D")){//test diff funk
+                    writeData(true,  false,  false);
+                    int overPayment = 0;
+                    for (int m = 1; m <= n; m++) {
+                        int D = absoluteMonth(differentiatedPayment(P, n, i, m));
+                        System.out.println("Month " + m + ": payment is " + D);
+                        overPayment += D;
+                    }
+                    System.out.println("Overpayment = " + (int)(overPayment - P));
                 }
             }
             catch(Exception e){
@@ -92,6 +102,7 @@ public class Credit {
         return log(1 + i, (A / (A - (i * P))));
     }
     private static double differentiatedPayment(double P, double n, double i, double m){
+        i = procent(i);
         return (P / n) + (i * (P - ((P * (m - 1)) / n)));
     }
 
